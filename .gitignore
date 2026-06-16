@@ -5,6 +5,7 @@ __pycache__/
 # Local deployment/tool folders
 .netlify/
 .vercel/
+site/
 .claude/
 
 # Unrelated local projects and generated work folders
@@ -14,12 +15,17 @@ pawalk/
 pet-feeling-app/
 pic/
 rag-sample/
+gourmet-search/
+stock-predictor/
 line_stamps*/
 
 # Unrelated scratch files
 firebase-debug.log
+start-gourmet.sh
 it_post_generator_rss.py
 requirements.txt
+rss-generator.md
+IT記事投稿ジェネレーター仕様.md
 otsukaresama_*.png
 images/*_cropped.png
 images/case_ai_search.png
@@ -38,3 +44,5 @@ images/service_system_dev.png
 
 # Keep the previous repository metadata backup local only
 .git.post-generator-backup-*/
+.git.tail-tech-heavy-backup-*/
+.git.post-generator-current-*/

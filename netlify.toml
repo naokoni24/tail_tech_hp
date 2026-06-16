@@ -1,4 +1,5 @@
 [build]
+  command = "./scripts/sync-site.sh"
   publish = "site"
 
 [[headers]]

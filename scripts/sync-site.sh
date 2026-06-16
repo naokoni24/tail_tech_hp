@@ -4,13 +4,13 @@ set -eu
 mkdir -p site/images site/assets site/js
 
 cp index.html privacy.html commercial.html site/
-cp favicon.svg site/
+cp favicon.svg _headers site/
 cp robots.txt sitemap.xml site/
 cp assets/wanko_ai.pdf assets/search_ai.pdf site/assets/
 cp js/contact-links.js site/js/
 
 cp \
-  images/tail-tech-word-a.png \
+  images/tail-tech-word-a-transparent.png \
   images/dog-event-hiyori.jpg \
   images/dog-event-service-generated-thumb.jpg \
   images/service_ai_search_knowledge_thumb.png \
