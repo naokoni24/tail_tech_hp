@@ -1,6 +1,6 @@
 # Tail Tech HP 仕様書
 
-最終更新: 2026-06-16
+最終更新: 2026-06-16（セッション4）
 
 ## 作業ルール
 
@@ -31,21 +31,26 @@
 
 ### ヘッダー
 
-- ロゴは透過PNGを使用する。
-- 現在のロゴ画像: `images/tail-tech-word-a-transparent.png`
+- ロゴは透過WebPを使用する（旧: PNG → 現: WebP）。
+- 現在のロゴ画像: `images/tail-tech-word-a-transparent.webp`
 - ヘッダーはsticky。
 - 背景は半透明白 + blur。
 - 透過ロゴを使う理由: スクロール時にロゴ背景の白い四角が残らないようにするため。
+- ナビゲーションリンク: サービス / 提供価値 / 事例 / 強み / プロフィール / お問い合わせ
 
 ### ヒーロー
 
 - コピー:
-  - `AI活用・業務改善・システム開発のご相談は Tail Tech へ`
-  - `業務を変え、成長を支えるパートナー`
-- 説明文は、AI活用、業務改善、業務効率化、システム開発、社内ナレッジ活用を含める。
+  - `AI活用・業務改善・システム開発のご相談は Tail Tech へ`（eyebrow）
+  - `業務を変え、成長を支えるパートナー`（h1）
+- 説明文: `AI活用・業務改善・システム開発まで、課題に合わせた最適な仕組みをワンストップで提供します。`
+- hero-pointsの3つ:
+  1. AI活用で新しい体験と価値を創出
+  2. 業務改善・効率化で生産性を向上
+  3. システムで業務を支え継続的な成長をサポート
 - CTA:
-  - お問い合わせはこちら
-  - サービス資料をダウンロード
+  - お問い合わせはこちら（`#contact`へアンカー）
+  - サービス資料をダウンロード（`#services`へアンカー、PDFへの直接リンクではない）
 
 ### サービス
 
@@ -63,14 +68,24 @@
 - 業務効率化・DX支援: `#contact`
 - システム提案・開発: `#contact`
 
+### 強み（Tail Techについて）
+
+セクションID: `#strength`。`about-grid` で「Tail Techについて」と「プロフィール」を横並びに配置。
+
+- Tail Techについて（check-list）:
+  1. 業務システムで培った高い技術力と品質
+  2. AI・システム・業務改善までワンストップで対応
+  3. 小規模でも相談しやすい柔軟なサポート
+  4. 現場目線の提案で成果につながる仕組みを構築
+
 ### 事例
 
 表示順:
 
-1. AIイベントフォト
+1. AIイベントフォト（ペットサロン）
 2. AIドキュメント検索
-3. LINE自動化
-4. 業務システム開発
+3. LINE自動化（サービス業）
+4. 業務システム開発（小売業）
 
 ### 価値
 
@@ -102,8 +117,11 @@
   - `プロフィール`
   - `Tail Tech 代表 小西 直樹`
   - `AI / DX / インフラ・システム基盤エンジニア`
+- profile-lead: `金融・官公庁のシステム経験を活かした信頼性の高いインフラ構築・運用支援`
+- profile-text: `大手メーカー系SEを経て独立。金融・官公庁向けインフラで培った信頼性を武器に、中小企業・店舗のAI活用・DX推進を支援しています。`
 - 現在はインフラエンジニア寄りの経験を反映する。
 - 金融・官公庁向けシステム、安定性・信頼性が必要なインフラ・システム基盤領域の経験を強調する。
+- プロフィール写真: `images/profile-temp-selected.webp`
 
 ### CTA
 
@@ -143,16 +161,28 @@ Xアイコンは20px、LINEアイコンは28px。
 - アカウント: `@tailtechjp`
 - URL: `https://x.com/tailtechjp`
 
+## アナリティクス
+
+- Google Analytics (GA4): 計測ID `G-V9KQ2YSTVH`
+- 実装方式: `window.addEventListener('load', ...)` で非同期ロード（パフォーマンス最適化）
+- `index.html` の `<head>` 先頭に配置。
+
 ## SEO / Search Console
 
 - Google Search Console: プロパティ登録済み（`tail-tech.jp`）、DNSのTXTレコードで所有権確認済み。
+- 確認metaタグ: `content="Ad9NmadEjXUfo6OTfEJyxDzbKEyL61iDKcuCOYuIeEU"`
 - サイトマップ送信済み: `https://tail-tech.jp/sitemap.xml`
-- Google Search Console確認metaタグは `index.html` に配置済み。
 - robots: `https://tail-tech.jp/robots.txt`
 - `sitemap.xml` に含めるURL:
   - `https://tail-tech.jp/`
   - `https://tail-tech.jp/privacy.html`
   - `https://tail-tech.jp/commercial.html`
+
+### JSON-LD 構造化データ（3種）
+
+1. `ProfessionalService`: サービス情報、メール、住所（東京都）、sameAs（X・LINE）
+2. `Person`: 小西直樹、jobTitle、worksFor Tail Tech
+3. `FAQPage`: 5つのFAQ（費用・対応エリア・対象・導入期間・初回相談）
 
 ## セキュリティヘッダー
 
@@ -238,6 +268,7 @@ git -c http.version=HTTP/1.1 push
 - `index.html`
 - `privacy.html`
 - `commercial.html`
+- `404.html`
 - `favicon.svg`
 - `robots.txt`
 - `sitemap.xml`
@@ -247,8 +278,12 @@ git -c http.version=HTTP/1.1 push
 - `scripts/sync-site.sh`
 - `assets/wanko_ai.pdf`
 - `assets/search_ai.pdf`
-- `images/tail-tech-word-a-transparent.png`
-- 各種LP用画像
+- `docs/tailtech-hp.md`（Obsidian仕様書のコピー）
+- `images/tail-tech-word-a-transparent.webp`（旧: `.png` → 現: `.webp`）
+- `images/dog-event-hiyori.webp`（ヒーローのスマホ画面）
+- `images/profile-temp-selected.webp`（プロフィール写真）
+- `images/cost-navy-final-thick.webp`（価値カードアイコン）
+- 各種LP用画像（`.webp`形式）
 
 `site/` は `sync-site.sh` で生成される公開用フォルダ。
 
@@ -261,6 +296,19 @@ git -c http.version=HTTP/1.1 push
 - 公式ロゴはブランドガイドラインに従う。LINE公式ロゴの色改変は避ける。
 
 ## 変更履歴
+
+### 2026-06-16（セッション4）
+
+- 現在の `index.html` を読み込み、仕様書を実態に合わせて更新。
+- ロゴ形式を PNG → WebP に修正（`tail-tech-word-a-transparent.webp`）。
+- ナビゲーションリンク一覧を追記（強み・プロフィールを含む）。
+- ヒーローCTA「サービス資料をダウンロード」は `#services` アンカーと明記（PDFへの直接リンクではない）。
+- `#strength` セクション（Tail Techについて・check-list 4項目）を新規追記。
+- プロフィールの `profile-lead`・`profile-text` の現行テキストを仕様書に反映。
+- Google Analytics (GA4) セクションを新規追記（計測ID: `G-V9KQ2YSTVH`）。
+- JSON-LD 構造化データ（3種）の概要を追記。
+- ファイル構成に `404.html`・`docs/tailtech-hp.md`・各WebP画像を追記。
+- 仕様書を `docs/tailtech-hp.md` としてリポジトリにpush済み。
 
 ### 2026-06-16（セッション3）
 
