@@ -2,6 +2,12 @@
   command = "./scripts/sync-site.sh"
   publish = "site"
 
+[[redirects]]
+  from = "https://www.tail-tech.jp/*"
+  to = "https://tail-tech.jp/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
