@@ -259,6 +259,8 @@ git -c http.version=HTTP/1.1 push
 
 過去に `post-generator` の `.git` が混ざったことがあるため、push前に必ずremoteを確認する。
 
+**注意（2026-06-30判明）**: `tailtech_hp/` は独自の `.git` を持たず、親フォルダ `/Users/nao/Desktop/projects/.git` を共有している。この `.git` は `post-generator` プロジェクトの作業（`rss-generator` 関連スキル等）からも触られる可能性があり、`origin` のURLが `post-generator` に書き換わることがある（2026-06-30に実際発生、push型は拒否されたため実害はなし）。push前に必ず `git remote -v` で `https://github.com/naokoni24/tail_tech_hp.git` になっているか確認し、違っていたら `git remote set-url origin https://github.com/naokoni24/tail_tech_hp.git` で戻してからpushする。
+
 ## ファイル構成
 
 主な管理対象:
