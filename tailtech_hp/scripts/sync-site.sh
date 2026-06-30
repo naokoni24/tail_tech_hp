@@ -22,4 +22,5 @@ cp \
   images/case_line_highres.webp \
   images/case_system_highres.webp \
   images/profile-temp-selected.webp \
+  images/apple-touch-icon.png \
   site/images/

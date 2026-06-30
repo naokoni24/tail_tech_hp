@@ -1,6 +1,6 @@
 # Tail Tech HP 仕様書
 
-最終更新: 2026-06-16（セッション4）
+最終更新: 2026-06-30（セッション5）
 
 ## 作業ルール
 
@@ -33,6 +33,7 @@
 
 - ロゴは透過WebPを使用する（旧: PNG → 現: WebP）。
 - 現在のロゴ画像: `images/tail-tech-word-a-transparent.webp`
+- iPhoneホーム画面追加用アイコン: `images/apple-touch-icon.png`（180×180px、白背景にロゴワードマークを中央配置）。`index.html`の`<head>`に`<link rel="apple-touch-icon" href="images/apple-touch-icon.png">`を設定。
 - ヘッダーはsticky。
 - 背景は半透明白 + blur。
 - 透過ロゴを使う理由: スクロール時にロゴ背景の白い四角が残らないようにするため。
@@ -283,6 +284,7 @@ git -c http.version=HTTP/1.1 push
 - `images/dog-event-hiyori.webp`（ヒーローのスマホ画面）
 - `images/profile-temp-selected.webp`（プロフィール写真）
 - `images/cost-navy-final-thick.webp`（価値カードアイコン）
+- `images/apple-touch-icon.png`（iPhoneホーム画面用アイコン）
 - 各種LP用画像（`.webp`形式）
 
 `site/` は `sync-site.sh` で生成される公開用フォルダ。
@@ -296,6 +298,12 @@ git -c http.version=HTTP/1.1 push
 - 公式ロゴはブランドガイドラインに従う。LINE公式ロゴの色改変は避ける。
 
 ## 変更履歴
+
+### 2026-06-30（セッション5）
+
+- iPhoneホーム画面追加用の`apple-touch-icon.png`（180×180px）を新規作成。既存のロゴワードマーク（`tail-tech-word-a-transparent.png`）の透明余白をクロップし、白背景の正方形キャンバスに中央配置して生成。
+- `index.html`の`<head>`に`<link rel="apple-touch-icon" ...>`を追加。
+- `scripts/sync-site.sh`のコピー対象に`images/apple-touch-icon.png`を追加し、ビルド確認済み。
 
 ### 2026-06-16（セッション4）
 
