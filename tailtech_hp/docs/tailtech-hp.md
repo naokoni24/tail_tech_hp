@@ -4,10 +4,10 @@
 
 ## 作業ルール
 
-- 作業前にこのファイルを読む。
-- 変更後はこのファイルの「変更履歴」と、必要に応じて該当仕様を更新する。
+- 作業前にObsidianの`tailtech-hp/tailtech-hp.md`を読む。
+- 変更後はObsidianの同ファイルの「変更履歴」と、必要に応じて該当仕様を更新する。このファイルはその同期コピーとして更新する。
 - HPの修正後は、ユーザーがローカルで確認するまでcommit・pushを行わない。pushはユーザーから明示的に依頼された場合のみ実施する。
-- Tail Tech HPの変更は `/Users/nao/Desktop/project/tailtech_hp` で行う。（`wan/` → `project/` にリネーム、全ファイルを `tailtech_hp/` サブフォルダに移動済み）
+- Tail Tech HPの変更は `/Users/nao/Desktop/projects/tailtech_hp` で行う。
 - GitHubへpushする前に、`origin` が `https://github.com/naokoni24/tail_tech_hp.git` を向いていることを確認する。
 - `post-generator` など別プロジェクトの履歴やファイルをTail Tech HPへ混ぜない。
 
@@ -47,6 +47,7 @@
   - `AI活用・業務改善・システム開発のご相談は Tail Tech へ`（eyebrow）
   - `日々の「手間」を減らし、本来の仕事に集中できる仕組みをつくる。`（h1）
 - 説明文: `問い合わせ対応や転記作業、資料探しなどを減らし、従業員が接客や本来の仕事に集中できる状態をつくります。`
+- スマホでは見出しを読みやすく保つため、`日々の「手間」を減らし、`と`本来の仕事に集中できる`を途中で改行しない。残りの`仕組みをつくる。`は次行へ自然に送る。
 - hero-pointsの3つ:
   1. AI活用で新しい体験と価値を創出
   2. 業務改善・効率化で生産性を向上
@@ -238,7 +239,7 @@ FAQの構造化データは、ページ内でユーザーに表示している�
 ### 手動デプロイ
 
 ```sh
-cd /Users/nao/Desktop/project/tailtech_hp
+cd /Users/nao/Desktop/projects/tailtech_hp
 ./scripts/sync-site.sh
 netlify deploy --dir site --prod
 ```
@@ -368,6 +369,12 @@ git -c http.version=HTTP/1.1 push
 - Step05の説明文は改行せず1行で表示するようにした。
 - サービスカードのチェック項目とCTA区切り線の間に、24pxの余白を確保して見やすくした。
 - HP修正後はローカル確認を優先し、ユーザーから明示依頼があるまでcommit・pushしない運用ルールを追加。
+- Netlifyのフォーム検出を有効化し、フォーム送信通知を`info@tail-tech.jp`へ設定した。
+- プライバシーポリシー同意は必須の送信条件として残しつつ、通知メール本文には含めないようにした。
+- フォーム送信開始時にボタンを`送信中…`へ切り替え、二重送信を防ぐようにした。
+- AI体験コンテンツの資料を、既存ファイル名`assets/wanko_ai.pdf`のまま8ページの提案資料へ差し替えた。
+- Tail Tech HP作業では、Obsidianの`tailtech-hp/tailtech-hp.md`を作業前に読み、作業後に更新する運用へ変更した。
+- スマホ表示のヒーロー見出しで意図しない改行が入らないよう、文節単位で改行位置を制御した。
 
 ### 2026-06-30（セッション5）
 
