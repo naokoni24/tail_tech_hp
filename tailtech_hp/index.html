@@ -145,6 +145,126 @@
     width: min(100%, 320px);
   }
   .cta-actions .button { width: 100%; }
+  .device-laptop {
+    transform-origin: center;
+    animation: hero-laptop-float 7s ease-in-out infinite;
+  }
+  .device-phone {
+    transform-origin: center;
+    animation: hero-phone-float 4.8s ease-in-out infinite;
+  }
+  .floating-badge {
+    animation: hero-badge-float 6s ease-in-out infinite;
+  }
+  .dashboard-pill {
+    background: linear-gradient(90deg, #dbe8fb 0%, #f7fbff 48%, #dbe8fb 100%);
+    background-size: 220% 100%;
+    animation: hero-dashboard-flow 4s linear infinite;
+  }
+  .ui-line {
+    position: relative;
+    overflow: hidden;
+  }
+  .ui-line::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent);
+    transform: translateX(-120%);
+    animation: hero-line-flow 3.8s ease-in-out infinite;
+  }
+  .ui-card:nth-child(2) .ui-line::after { animation-delay: .45s; }
+  .ui-card:nth-child(3) .ui-line::after { animation-delay: .9s; }
+  .ui-chart {
+    background-size: 180% 100%;
+    animation: hero-chart-pulse 5s ease-in-out infinite;
+  }
+  .floating-badge span {
+    animation: hero-badge-item 6s ease-in-out infinite;
+  }
+  .floating-badge span:nth-of-type(2) { animation-delay: .35s; }
+  .floating-badge span:nth-of-type(3) { animation-delay: .7s; }
+  .phone-screen { position: relative; }
+  .phone-demo-step {
+    position: absolute;
+    left: 50%;
+    z-index: 3;
+    width: 86%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 4px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(10,60,143,.92);
+    box-shadow: 0 6px 14px rgba(6,27,69,.28);
+    font-size: 8px;
+    font-weight: 900;
+    line-height: 1.15;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(.82);
+    pointer-events: none;
+    animation: phone-demo-flow 9s ease-in-out infinite;
+  }
+  .phone-demo-step b {
+    width: 15px;
+    height: 15px;
+    display: grid;
+    place-items: center;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    color: var(--navy-dark);
+    background: #fff;
+    font-size: 8px;
+  }
+  .phone-demo-step.is-photo { top: 25%; }
+  .phone-demo-step.is-event { top: 61%; animation-delay: 3s; }
+  .phone-demo-step.is-generate { top: 91%; background: rgba(226,145,27,.94); animation-delay: 6s; }
+  @keyframes hero-laptop-float {
+    0%,100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-5px) rotate(-1.5deg); }
+  }
+  @keyframes hero-phone-float {
+    0%,100% { transform: translateY(0) rotate(7deg); }
+    50% { transform: translateY(-11px) rotate(5.5deg); }
+  }
+  @keyframes hero-badge-float {
+    0%,100% { transform: translateY(0) scale(1); box-shadow: var(--shadow); }
+    50% { transform: translateY(-7px) scale(1.015); box-shadow: 0 22px 48px rgba(10,60,143,.16); }
+  }
+  @keyframes hero-dashboard-flow {
+    to { background-position: -220% 0; }
+  }
+  @keyframes hero-line-flow {
+    0%,30% { transform: translateX(-120%); }
+    70%,100% { transform: translateX(120%); }
+  }
+  @keyframes hero-chart-pulse {
+    0%,100% { opacity: .72; background-position: 0 0; }
+    50% { opacity: 1; background-position: 100% 0; }
+  }
+  @keyframes hero-badge-item {
+    0%,100% { opacity: .72; transform: translateX(0); }
+    18%,72% { opacity: 1; transform: translateX(3px); }
+  }
+  @keyframes phone-demo-flow {
+    0%,4%,31%,100% { opacity: 0; transform: translate(-50%,-50%) scale(.82); }
+    9%,25% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+    18% { opacity: 1; transform: translate(-50%,-50%) scale(.95); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .device-laptop,
+    .device-phone,
+    .floating-badge,
+    .dashboard-pill,
+    .ui-line::after,
+    .ui-chart,
+    .floating-badge span,
+    .phone-demo-step { animation: none; }
+  }
   .problems { padding-bottom: 70px; }
   .hero h1 .hero-title-lead { color: var(--ink); display: inline; white-space: nowrap; }
   .hero-title-focus { white-space: nowrap; }
@@ -309,6 +429,9 @@
           <div class="device-phone" aria-label="Smartphone showing AI pet image generation">
             <div class="phone-screen">
               <img src="images/dog-event-hiyori.webp" alt="わんこイベント日和のスマホ画面" width="300" height="622">
+              <span class="phone-demo-step is-photo" aria-hidden="true"><b>1</b>写真を選択</span>
+              <span class="phone-demo-step is-event" aria-hidden="true"><b>2</b>イベントを選択</span>
+              <span class="phone-demo-step is-generate" aria-hidden="true"><b>3</b>生成ボタンを押す</span>
             </div>
           </div>
           <div class="floating-badge">
@@ -349,7 +472,7 @@
           </a>
           <a class="card problem-card" href="#system-development" data-track="problem_system_development">
             <svg class="problem-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5V4Zm4 4h6m-6 4h6m-6 4h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Excel・紙・複数ツールが限界</h3>
+            <h3>Excel・紙での管理に限界を感じている</h3>
             <p>転記ミスや属人化が増え、今の業務フローのままでは回らなくなってきた。</p>
             <span class="problem-link">業務に合う仕組みを相談する</span>
           </a>
