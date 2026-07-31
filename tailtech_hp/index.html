@@ -331,6 +331,8 @@
   .mobile-consult { display: none; }
   @media (max-width: 700px) {
     body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+    .phone-demo-step { gap: 3px; padding-inline: 3px; font-size: 6.5px; }
+    .phone-demo-step b { width: 13px; height: 13px; font-size: 7px; }
     .mobile-consult { position: fixed; right: 0; bottom: 0; left: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, .96); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(6, 27, 69, .1); backdrop-filter: blur(12px); }
     .mobile-consult a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 8px; font-size: 14px; font-weight: 900; }
     .mobile-consult .mobile-email { color: var(--navy); border: 1px solid var(--navy); background: #fff; }
