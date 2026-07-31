@@ -52,8 +52,16 @@
   .submit { color:#fff; background:var(--navy); box-shadow:0 14px 26px rgba(10,60,143,.25); }
   .submit:disabled { cursor:wait; opacity:.78; }
   .line { color:#1a1a1a; background:#06C755; }
-  .footer { padding:26px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px; font-weight:700; }
-  @media (max-width:600px) { .container { width:min(100% - 28px,920px); } .header-inner { min-height:74px; } .brand-image { height:52px; } .form-grid { grid-template-columns:1fr; gap:16px; } .actions { flex-direction:column; align-items:stretch; } .button { width:100%; } }
+  .footer { padding:26px 0; border-top:1px solid var(--line); }
+  .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .footer-brand { display:flex; align-items:center; gap:11px; }
+  .footer-word-image { width:auto; height:54px; object-fit:contain; }
+  .footer-sub { color:var(--muted); font-size:12px; font-weight:700; }
+  .footer-links { display:flex; align-items:center; gap:24px; color:var(--muted); font-size:12px; font-weight:750; }
+  .footer-social-link { display:inline-flex; align-items:center; justify-content:center; }
+  .footer-social-link svg { width:28px; height:28px; flex:0 0 auto; }
+  .footer-social-link.is-x svg { width:20px; height:20px; }
+  @media (max-width:600px) { .container { width:min(100% - 28px,920px); } .header-inner { min-height:74px; } .brand-image { height:52px; } .form-grid { grid-template-columns:1fr; gap:16px; } .actions { flex-direction:column; align-items:stretch; } .button { width:100%; } .footer-inner { flex-direction:column; align-items:flex-start; } .footer-links { flex-wrap:wrap; gap:14px; } }
 </style>
 </head>
 <body>
@@ -88,7 +96,27 @@
       </form>
     </div>
   </main>
-  <footer class="footer"><div class="container">© Tail Tech</div></footer>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div>
+          <img class="footer-word-image" src="images/tail-tech-word-a-transparent.webp" alt="Tail Tech Technology × AI × DX" width="340" height="160" loading="lazy">
+          <div class="footer-sub">店舗・企業向け AI / システム活用支援</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a class="footer-social-link is-x" href="https://x.com/tailtechjp" target="_blank" rel="noopener" aria-label="Tail TechのXアカウント">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 3h3.1l-6.8 7.8L22 21h-6.4l-5-6.5L4.9 21H1.8l7.3-8.4L1.3 3h6.6l4.5 5.9L17.6 3Zm-1.1 16.2h1.7L7 4.7H5.1l11.4 14.5Z" fill="currentColor"/></svg>
+        </a>
+        <a class="footer-social-link" href="https://lin.ee/7qalLf4" target="_blank" rel="noopener" aria-label="LINEで相談する">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.1c-4.45 0-8.05 2.86-8.05 6.39 0 3.16 2.88 5.79 6.66 6.3l-.09 2.05c-.02.44.5.7.84.42l3.02-2.42c3.28-.72 5.67-3.22 5.67-6.35 0-3.53-3.6-6.39-8.05-6.39Z" fill="currentColor"/><text x="12" y="12.6" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="5.2" font-weight="800" letter-spacing="-.35">LINE</text></svg>
+        </a>
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="commercial.html">特定商取引法に基づく表記</a>
+        <span>© Tail Tech</span>
+      </div>
+    </div>
+  </footer>
   <script src="js/cta-tracking.js?v=20260731-1" defer></script>
   <script>
     document.getElementById('contact-form').addEventListener('submit', () => {
