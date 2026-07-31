@@ -157,10 +157,53 @@
     animation: hero-badge-float 6s ease-in-out infinite;
   }
   .dashboard-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    font-size: 8px;
+    font-weight: 950;
+    letter-spacing: .08em;
+    white-space: nowrap;
     background: linear-gradient(90deg, #dbe8fb 0%, #f7fbff 48%, #dbe8fb 100%);
     background-size: 220% 100%;
     animation: hero-dashboard-flow 4s linear infinite;
   }
+  .booking-content { margin-top: 8px; }
+  .booking-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px; }
+  .booking-metric { padding: 6px 7px; border-radius: 8px; background: #edf5ff; }
+  .booking-metric b { display: block; color: var(--navy); font-size: 14px; font-weight: 950; line-height: 1; }
+  .booking-metric b small { font-size: 7px; }
+  .booking-metric span { display: block; margin-top: 4px; color: #53657f; font-size: 7px; font-weight: 850; line-height: 1; white-space: nowrap; }
+  .booking-progress-label { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 7px; color: #53657f; font-size: 7px; font-weight: 850; line-height: 1; }
+  .booking-progress-label b { color: var(--navy); font-size: 8px; }
+  .booking-progress-track { height: 6px; margin-top: 4px; overflow: hidden; border-radius: 999px; background: #dbe8f8; }
+  .booking-progress-fill { width: 92%; height: 100%; display: block; border-radius: inherit; background: linear-gradient(90deg,#2f73d3,#0a3c8f); }
+  .ai-usage-content {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: end;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .ai-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 5px; }
+  .ai-metric { padding: 6px 5px; border-radius: 8px; background: #edf5ff; }
+  .ai-metric b { display: block; color: var(--navy); font-size: 14px; font-weight: 950; line-height: 1; }
+  .ai-metric b small { font-size: 7px; }
+  .ai-metric span { display: block; margin-top: 4px; color: #53657f; font-size: 7px; font-weight: 850; line-height: 1; }
+  .ai-bars { height: 42px; display: flex; align-items: end; gap: 4px; padding: 4px 5px; border-bottom: 1px solid #cbdaf0; background: repeating-linear-gradient(0deg,transparent 0 9px,rgba(10,60,143,.07) 10px); }
+  .ai-bar { width: 100%; height: var(--bar-height); border-radius: 3px 3px 1px 1px; background: linear-gradient(180deg,#2f73d3,#0a3c8f); transform-origin: bottom; animation: dashboard-bar-rise 3.4s ease-in-out infinite alternate; }
+  .ai-bar:nth-child(2) { animation-delay: .25s; }
+  .ai-bar:nth-child(3) { animation-delay: .5s; }
+  .ai-bar:nth-child(4) { animation-delay: .75s; }
+  .data-table-wrap { margin-top: 8px; overflow: hidden; border: 1px solid #d8e5f7; border-radius: 8px; }
+  .data-table { width: 100%; border-collapse: collapse; table-layout: fixed; color: #223858; font-size: 8px; font-weight: 800; line-height: 1.2; }
+  .data-table th,.data-table td { padding: 5px 7px; text-align: left; border-right: 1px solid #e1eaf7; border-bottom: 1px solid #e1eaf7; white-space: nowrap; }
+  .data-table th:last-child,.data-table td:last-child { border-right: 0; }
+  .data-table tbody tr:last-child td { border-bottom: 0; }
+  .data-table th { color: #61728b; background: #edf5ff; font-size: 7px; font-weight: 900; }
+  .data-table th:first-child,.data-table td:first-child { width: 46%; }
+  .data-table td:last-child { color: var(--navy); font-weight: 950; }
   .ui-line {
     position: relative;
     overflow: hidden;
@@ -286,6 +329,10 @@
   @keyframes hero-dashboard-flow {
     to { background-position: -220% 0; }
   }
+  @keyframes dashboard-bar-rise {
+    from { transform: scaleY(.72); opacity: .7; }
+    to { transform: scaleY(1); opacity: 1; }
+  }
   @keyframes hero-line-flow {
     0%,30% { transform: translateX(-120%); }
     70%,100% { transform: translateX(120%); }
@@ -320,6 +367,7 @@
     .dashboard-pill,
     .ui-line::after,
     .ui-chart,
+    .ai-bar,
     .floating-badge span,
     .phone-demo-step { animation: none; }
     .phone-generated-result { animation: none; opacity: 1; transform: translate(-94%,-62%) scale(1) rotate(-5deg); }
@@ -400,6 +448,26 @@
     .phone-generated-result span { font-size: 6px; }
     .phone-generated-result::before,
     .phone-generated-result::after { font-size: 12px; }
+    .dashboard-bar { margin-bottom: 10px; }
+    .dashboard-pill { width: 82px; height: 20px; font-size: 6px; }
+    .booking-content { margin-top: 5px; }
+    .booking-metrics { gap: 3px; }
+    .booking-metric { padding: 4px 3px; }
+    .booking-metric b { font-size: 9px; }
+    .booking-metric b small,.booking-metric span { font-size: 5px; }
+    .booking-progress-label { margin-top: 5px; font-size: 5px; }
+    .booking-progress-label b { font-size: 6px; }
+    .booking-progress-track { height: 4px; margin-top: 3px; }
+    .ai-usage-content { gap: 4px; margin-top: 5px; }
+    .ai-metrics { gap: 3px; }
+    .ai-metric { padding: 4px 3px; }
+    .ai-metric b { font-size: 9px; }
+    .ai-metric b small,.ai-metric span { font-size: 5px; }
+    .ai-bars { height: 30px; gap: 2px; padding: 3px; }
+    .data-table-wrap { margin-top: 5px; }
+    .data-table { font-size: 5.5px; }
+    .data-table th,.data-table td { padding: 3px 4px; }
+    .data-table th { font-size: 5px; }
     .mobile-consult { position: fixed; right: 0; bottom: 0; left: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, .96); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(6, 27, 69, .1); backdrop-filter: blur(12px); }
     .mobile-consult a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 8px; font-size: 14px; font-weight: 900; }
     .mobile-consult .mobile-email { color: var(--navy); border: 1px solid var(--navy); background: #fff; }
@@ -474,23 +542,47 @@
             <div class="dashboard">
               <div class="dashboard-bar">
                 <span class="dashboard-title">Business Automation Dashboard</span>
-                <span class="dashboard-pill"></span>
+                <span class="dashboard-pill">サンプルデータ</span>
               </div>
               <div class="dashboard-grid">
                 <div class="ui-card">
                   <strong>予約・問い合わせ</strong>
-                  <div class="ui-line mid"></div>
-                  <div class="ui-line short"></div>
+                  <div class="booking-content">
+                    <div class="booking-metrics">
+                      <div class="booking-metric"><b>12<small>件</small></b><span>本日の予約</span></div>
+                      <div class="booking-metric"><b>3<small>件</small></b><span>未対応問合せ</span></div>
+                    </div>
+                    <div class="booking-progress-label"><span>問い合わせ対応完了</span><b>92%</b></div>
+                    <div class="booking-progress-track" aria-hidden="true"><span class="booking-progress-fill"></span></div>
+                  </div>
                 </div>
                 <div class="ui-card">
                   <strong>AI活用状況</strong>
-                  <div class="ui-chart"></div>
+                  <div class="ai-usage-content">
+                    <div class="ai-metrics">
+                      <div class="ai-metric"><b>286<small>件</small></b><span>AI処理</span></div>
+                      <div class="ai-metric"><b>42<small>h</small></b><span>時間削減</span></div>
+                    </div>
+                    <div class="ai-bars" aria-hidden="true">
+                      <span class="ai-bar" style="--bar-height:48%"></span>
+                      <span class="ai-bar" style="--bar-height:68%"></span>
+                      <span class="ai-bar" style="--bar-height:82%"></span>
+                      <span class="ai-bar" style="--bar-height:100%"></span>
+                    </div>
+                  </div>
                 </div>
                 <div class="ui-card wide">
                   <strong>業務データ可視化</strong>
-                  <div class="ui-line"></div>
-                  <div class="ui-line mid"></div>
-                  <div class="ui-chart"></div>
+                  <div class="data-table-wrap">
+                    <table class="data-table" aria-label="業務データのサンプル">
+                      <thead><tr><th>業務</th><th>今月</th><th>効果</th></tr></thead>
+                      <tbody>
+                        <tr><td>予約受付</td><td>128件</td><td>+18%</td></tr>
+                        <tr><td>問い合わせ対応</td><td>94件</td><td>32%短縮</td></tr>
+                        <tr><td>資料検索</td><td>64件</td><td>8秒/件</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
