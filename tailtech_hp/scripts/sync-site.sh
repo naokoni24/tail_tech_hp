@@ -12,6 +12,7 @@ cp js/contact-links.js js/cta-tracking.js site/js/
 cp \
   images/tail-tech-word-a-transparent.webp \
   images/dog-event-hiyori.webp \
+  images/dog-event-generated-result.jpg \
   images/dog-event-service-generated-thumb.webp \
   images/service_ai_search_knowledge_thumb.webp \
   images/service_dx_highres.webp \

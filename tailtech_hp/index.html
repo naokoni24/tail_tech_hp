@@ -207,7 +207,7 @@
     opacity: 0;
     transform: translate(-50%,-50%) scale(.82);
     pointer-events: none;
-    animation: phone-demo-flow 9s ease-in-out infinite;
+    animation: phone-demo-flow 12s ease-in-out infinite;
   }
   .phone-demo-step b {
     width: 15px;
@@ -223,6 +223,54 @@
   .phone-demo-step.is-photo { top: 25%; }
   .phone-demo-step.is-event { top: 61%; animation-delay: 3s; }
   .phone-demo-step.is-generate { top: 91%; background: rgba(226,145,27,.94); animation-delay: 6s; }
+  .phone-generated-result {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    z-index: 5;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px 8px 11px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.94);
+    border-radius: 18px;
+    color: #7b3d36;
+    background: linear-gradient(160deg,#fffaf5 0%,#ffe9e0 52%,#fff2c9 100%);
+    box-shadow: 0 24px 44px rgba(6,27,69,.3),0 8px 18px rgba(123,61,54,.2);
+    opacity: 0;
+    transform: translate(-50%,-50%) scale(.18) rotate(8deg);
+    transform-origin: 82% 74%;
+    pointer-events: none;
+    animation: phone-result-reveal 12s ease-in-out 9s infinite;
+  }
+  .phone-generated-result::before,
+  .phone-generated-result::after {
+    content: "✦";
+    position: absolute;
+    z-index: 2;
+    color: #f3a522;
+    font-size: 17px;
+    text-shadow: 0 2px 8px rgba(243,165,34,.32);
+    animation: phone-result-sparkle 1.15s ease-in-out infinite alternate;
+  }
+  .phone-generated-result::before { top: 17px; left: 10px; }
+  .phone-generated-result::after { right: 10px; bottom: 18px; animation-delay: .45s; }
+  .phone-generated-result img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    flex: 0 0 auto;
+    border: 3px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 18px rgba(123,61,54,.2);
+  }
+  .phone-generated-result strong { font-size: 11px; font-weight: 950; line-height: 1; }
+  .phone-generated-result span { color: #9b5b50; font-size: 8px; font-weight: 850; line-height: 1; }
   @keyframes hero-laptop-float {
     0%,100% { transform: translateY(0) rotate(-2deg); }
     50% { transform: translateY(-5px) rotate(-1.5deg); }
@@ -255,6 +303,16 @@
     9%,25% { opacity: 1; transform: translate(-50%,-50%) scale(1); }
     18% { opacity: 1; transform: translate(-50%,-50%) scale(.95); }
   }
+  @keyframes phone-result-reveal {
+    0%,4%,30%,100% { opacity: 0; transform: translate(-50%,-50%) scale(.18) rotate(8deg); }
+    10% { opacity: 1; transform: translate(-94%,-62%) scale(1.08) rotate(-7deg); }
+    16%,24% { opacity: 1; transform: translate(-94%,-62%) scale(1) rotate(-5deg); }
+    28% { opacity: 0; transform: translate(-98%,-66%) scale(.92) rotate(-3deg); }
+  }
+  @keyframes phone-result-sparkle {
+    from { opacity: .35; transform: scale(.75) rotate(-8deg); }
+    to { opacity: 1; transform: scale(1.15) rotate(8deg); }
+  }
   @media (prefers-reduced-motion: reduce) {
     .device-laptop,
     .device-phone,
@@ -264,6 +322,9 @@
     .ui-chart,
     .floating-badge span,
     .phone-demo-step { animation: none; }
+    .phone-generated-result { animation: none; opacity: 1; transform: translate(-94%,-62%) scale(1) rotate(-5deg); }
+    .phone-generated-result::before,
+    .phone-generated-result::after { animation: none; }
   }
   .problems { padding-bottom: 70px; }
   .hero h1 .hero-title-lead { color: var(--ink); display: inline; white-space: nowrap; }
@@ -333,6 +394,12 @@
     body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
     .phone-demo-step { gap: 3px; padding-inline: 3px; font-size: 6.5px; }
     .phone-demo-step b { width: 13px; height: 13px; font-size: 7px; }
+    .phone-generated-result { width: 160px; gap: 3px; padding: 6px 6px 8px; }
+    .phone-generated-result img { border-width: 2px; border-radius: 10px; }
+    .phone-generated-result strong { font-size: 8px; }
+    .phone-generated-result span { font-size: 6px; }
+    .phone-generated-result::before,
+    .phone-generated-result::after { font-size: 12px; }
     .mobile-consult { position: fixed; right: 0; bottom: 0; left: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: rgba(255, 255, 255, .96); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(6, 27, 69, .1); backdrop-filter: blur(12px); }
     .mobile-consult a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 8px; font-size: 14px; font-weight: 900; }
     .mobile-consult .mobile-email { color: var(--navy); border: 1px solid var(--navy); background: #fff; }
@@ -435,6 +502,11 @@
               <span class="phone-demo-step is-event" aria-hidden="true"><b>2</b>イベントを選択</span>
               <span class="phone-demo-step is-generate" aria-hidden="true"><b>3</b>生成ボタンを押す</span>
             </div>
+            <span class="phone-generated-result">
+              <img src="images/dog-event-generated-result.jpg" alt="浴衣姿の2匹の犬を写した生成後の夏祭りフォト" width="640" height="640">
+              <strong>できました！</strong>
+              <span>夏祭りフォト完成 ♡</span>
+            </span>
           </div>
           <div class="floating-badge">
             <strong>AI体験コンテンツの一例</strong>
