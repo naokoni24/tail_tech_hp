@@ -204,6 +204,7 @@ Xアイコンは20px、LINEアイコンは28px。
   - `https://tail-tech.jp/contact.html`
   - `https://tail-tech.jp/privacy.html`
   - `https://tail-tech.jp/commercial.html`
+- URLの正規化: Netlifyで`/contact`、`/privacy`、`/commercial`から、それぞれ`.html`付きのcanonical URLへ301リダイレクトする。
 
 ### JSON-LD 構造化データ（3種）
 
@@ -379,6 +380,8 @@ git -c http.version=HTTP/1.1 push
 - スマホ表示のヒーロー見出しで意図しない改行が入らないよう、文節単位で改行位置を制御した。
 - スマホ縦表示でプロフィール写真が大きくなりすぎないよう、最大280px幅・高さ190pxへ縮小した。
 - ヒーロー見出しの`日々の「手間」を減らし、`を、改行制御後も元の本文色へ戻した。
+- Search ConsoleでトップページがGoogleに登録済みであることを確認。未登録URLは2件で、インデックス登録状況の最終更新日は2026-07-24。
+- 重複して到達できた`/contact`、`/privacy`、`/commercial`を、サイトマップ・canonical・内部リンクで使う`.html`付きURLへ301リダイレクトする設定を追加。
 
 ### 2026-06-30（セッション5）
 

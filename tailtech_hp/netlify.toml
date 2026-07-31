@@ -8,6 +8,25 @@
   status = 301
   force = true
 
+# サイトマップ・canonical・内部リンクで使用する .html URL に統一する。
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/commercial"
+  to = "/commercial.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
