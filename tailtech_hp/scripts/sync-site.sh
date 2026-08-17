@@ -16,7 +16,7 @@ cp \
   images/dog-event-service-generated-thumb.webp \
   images/service_ai_search_knowledge_thumb.webp \
   images/service_dx_highres.webp \
-  images/service_system_dev_highres.webp \
+  images/service_sales_crm_demo.png \
   images/cost-navy-final-thick.webp \
   images/case_pet_ai_event_photo.png \
   images/case_pet_ai_event_photo.webp \
