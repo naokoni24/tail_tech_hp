@@ -377,7 +377,7 @@
   .problems { padding-bottom: 70px; }
   .hero h1 .hero-title-lead { color: var(--ink); display: inline; white-space: nowrap; }
   .hero-title-focus { white-space: nowrap; }
-  .problems-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .problem-card { display: flex; flex-direction: column; min-height: 200px; padding: 24px; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
   .problem-card:hover { transform: translateY(-5px); border-color: rgba(10, 60, 143, .28); box-shadow: var(--shadow); }
   .problem-illustration { width: 84px; height: 84px; margin-bottom: 14px; transition: transform .18s ease; }
@@ -498,6 +498,145 @@
   .reason-item p { margin: 0; color: #182b4b; font-size: 13px; font-weight: 820; line-height: 1.7; }
   @media (max-width: 1060px) {
     .reason-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<style>
+  /* Apple-inspired visual refinement: spacious, typography-led, and quietly premium. */
+  :root { --page-gray: #f5f5f7; --apple-line: rgba(7, 25, 54, .08); --radius: 28px; --shadow: 0 18px 42px rgba(7, 25, 54, .08); }
+  body { font-family: Nunito, "Arial Rounded MT Bold", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; letter-spacing: 0; }
+  body::before { display: none; }
+  .container { width: min(1160px, calc(100% - 48px)); }
+  .site-header { background: rgba(255, 255, 255, .72); border-bottom-color: var(--apple-line); }
+  .header-inner { height: 82px; }
+  .nav { gap: clamp(20px, 2.6vw, 32px); font-size: 13px; }
+  .nav a::after { display: none; }
+  .nav a:hover { color: var(--navy); }
+  .hero { position: relative; padding: 102px 0 112px; background: radial-gradient(circle at 78% 38%, rgba(213, 228, 255, .8), transparent 29%), radial-gradient(circle at 18% 2%, rgba(241, 246, 255, .9), transparent 31%); }
+  .hero-grid { gap: 58px; }
+  .eyebrow { margin-bottom: 18px; color: var(--navy); font-size: 15px; font-weight: 750; letter-spacing: .02em; }
+  .hero h1 { max-width: 620px; font-size: clamp(38px, 3.9vw, 50px); font-weight: 800; line-height: 1.13; letter-spacing: -.055em; }
+  .hero-copy { max-width: 560px; margin-top: 26px; color: #42526b; font-size: 17px; font-weight: 500; line-height: 1.85; }
+  .hero-points { gap: 8px; margin: 36px 0 30px; }
+  .hero-point { min-height: 0; padding: 10px 6px; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+  .hero-point + .hero-point { border-left: 1px solid var(--apple-line); }
+  .icon { width: 30px; height: 30px; margin-bottom: 7px; }
+  .hero-point p { color: #40516b; font-size: 12px; font-weight: 600; line-height: 1.6; }
+  .button { min-height: 52px; padding: 0 22px; border-radius: 999px; font-size: 14px; font-weight: 700; }
+  .button-primary { background: var(--navy); box-shadow: 0 10px 22px rgba(10, 60, 143, .2); }
+  .button-outline { border-color: var(--apple-line); box-shadow: 0 8px 22px rgba(7, 25, 54, .05); }
+  .mockup::before { inset: 28px -6vw 22px 28px; border-radius: 42px; background: linear-gradient(135deg, #f8fbff, #eaf2ff); }
+  .device-laptop { border-radius: 30px; box-shadow: 0 30px 70px rgba(5, 25, 62, .2); }
+  .floating-badge { border-radius: 28px; aspect-ratio: auto; min-height: 226px; background: rgba(255, 255, 255, .84); box-shadow: 0 22px 48px rgba(7, 25, 54, .11); }
+  section { padding: 112px 0; }
+  .section-heading { margin-bottom: 48px; }
+  .section-en { color: var(--navy); font-size: 12px; font-weight: 800; letter-spacing: .16em; }
+  .section-title { margin-top: 12px; font-size: clamp(29px, 3.2vw, 42px); font-weight: 800; letter-spacing: -.045em; line-height: 1.25; }
+  .section-sub { margin-top: 16px; color: #5d6b82; font-weight: 500; line-height: 1.9; }
+  .soft-band { background: var(--page-gray); }
+  .card { border: 0; border-radius: var(--radius); box-shadow: none; }
+  .problems { background: #fff; }
+  .problems-grid { gap: 20px; }
+  .problem-card { min-height: 238px; padding: 30px; background: var(--page-gray); transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+  .problem-card:hover { border: 0; background: #fff; box-shadow: 0 20px 44px rgba(7, 25, 54, .1); }
+  .problem-illustration { width: 72px; height: 72px; margin-bottom: 18px; }
+  .problem-card h3 { font-size: 19px; font-weight: 750; line-height: 1.45; letter-spacing: -.035em; }
+  .problem-link { padding-top: 20px; font-size: 13px; font-weight: 700; }
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .service-card { padding: 30px; background: #fff; border: 1px solid var(--apple-line); border-radius: 30px; box-shadow: 0 10px 28px rgba(7, 25, 54, .04); }
+  .service-card:hover { box-shadow: 0 22px 48px rgba(7, 25, 54, .11); }
+  .service-card h3 { font-size: 24px; font-weight: 750; letter-spacing: -.04em; }
+  .service-card h3.is-long-title { font-size: 21px; }
+  .service-sub { margin-top: -2px; font-weight: 550; }
+  .service-visual { margin-bottom: 22px; border-radius: 18px; }
+  .service-list li { font-size: 14px; font-weight: 600; }
+  .service-footer, .pdf-footer { margin-top: auto; padding-top: 18px; border-top-color: var(--apple-line); font-weight: 700; }
+  .step, .about-panel, .profile-card { border: 1px solid var(--apple-line); box-shadow: none; }
+  .step { border-radius: 24px; background: var(--page-gray); }
+  .cta { padding: 76px 0; }
+  .cta-panel { padding: 52px 56px; border-radius: 32px; background: linear-gradient(135deg, #061b45, #0a3c8f 70%, #1d63bd); }
+  .footer { border-top-color: var(--apple-line); }
+  @media (min-width: 900px) and (max-width: 1060px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 700px) {
+    .container { width: min(100% - 32px, 1160px); }
+    .header-inner { height: 72px; }
+    .hero { padding: 66px 0 70px; }
+    .hero h1 { font-size: clamp(25px, 7.2vw, 34px); }
+    .hero-copy { font-size: 16px; }
+    .hero-points { gap: 0; }
+    .problem-card { min-height: 220px; padding: 28px; }
+    section { padding: 80px 0; }
+    .section-heading { margin-bottom: 34px; }
+    .section-title { font-size: 30px; }
+    .services-grid { grid-template-columns: 1fr; gap: 18px; }
+    .service-card { padding: 24px; border-radius: 26px; }
+    .service-card h3, .service-card h3.is-long-title { font-size: 22px; }
+    .cta-panel { padding: 34px 28px; border-radius: 28px; }
+  }
+  @media (min-width: 1061px) {
+    .hero { padding: 118px 0 126px; }
+    .hero-grid { display: flex; flex-direction: column; gap: 50px; text-align: center; }
+    .hero-grid > div:first-child { width: min(720px, 100%); margin: 0 auto; }
+    .hero h1 { max-width: none; font-size: clamp(44px, 4.2vw, 54px); line-height: 1.1; }
+    .hero-copy { margin-right: auto; margin-left: auto; }
+    .hero-points { width: min(630px, 100%); margin: 42px auto 34px; }
+    .actions { justify-content: center; }
+    .mockup { width: min(900px, 100%); min-height: 550px; margin: 0 auto; }
+    .mockup::before { inset: 28px -38px 26px 38px; border-radius: 46px; }
+    .device-laptop { top: 54px; width: min(690px, 88%); }
+    .device-phone { right: 34px; bottom: 16px; width: 176px; }
+    .phone-screen { height: 324px; }
+    .floating-badge { left: 10px; bottom: 54px; width: 268px; }
+    .problems-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .problem-card { min-height: 270px; padding: 36px; }
+    .problem-card:nth-child(3n + 1) { background: #eef5ff; }
+    .services-grid { grid-template-columns: 1fr; gap: 30px; }
+    .service-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .92fr); grid-template-rows: auto auto 1fr auto; column-gap: 52px; min-height: 390px; padding: 44px 48px; }
+    .service-card h3 { grid-column: 1; grid-row: 1; display: block; min-height: 0; margin: 0; text-align: left; font-size: 30px; line-height: 1.25; }
+    .service-card h3.is-long-title { font-size: 28px; line-height: 1.25; }
+    .service-card .service-sub { grid-column: 1; grid-row: 2; margin: 12px 0 0; text-align: left; font-size: 15px; }
+    .service-card .service-visual { grid-column: 2; grid-row: 1 / span 4; align-self: center; margin: 0; aspect-ratio: 184 / 104; }
+    .service-card .service-list { grid-column: 1; grid-row: 3; align-self: end; margin: 28px 0 26px; }
+    .service-card .service-footer, .service-card .pdf-footer { grid-column: 1; grid-row: 4; margin: 0; }
+    .service-card:nth-child(even) h3 { grid-column: 2; }
+    .service-card:nth-child(even) .service-sub { grid-column: 2; }
+    .service-card:nth-child(even) .service-visual { grid-column: 1; }
+    .service-card:nth-child(even) .service-list { grid-column: 2; }
+    .service-card:nth-child(even) .service-footer, .service-card:nth-child(even) .pdf-footer { grid-column: 2; }
+    .service-card:nth-child(odd) { background: #fff; }
+    .service-card:nth-child(even) { background: #f8faff; }
+  }
+  /* Structure refinement: improve scanability without adding visual weight. */
+  #problems, #services, #strength, #profile, #flow, #faq, #contact,
+  #dx-support, #ai-search, #ai-experience, #system-development { scroll-margin-top: 104px; }
+  .service-cta { padding: 22px 0; background: transparent; }
+  .service-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 28px; border: 1px solid var(--apple-line); border-radius: 22px; background: #fff; box-shadow: none; }
+  .service-cta-kicker { margin: 0 0 2px; color: var(--navy); font-size: 10px; font-weight: 900; letter-spacing: .14em; }
+  .service-cta h2 { margin: 0; font-size: clamp(17px, 2vw, 21px); font-weight: 800; line-height: 1.45; letter-spacing: -.03em; }
+  .service-cta .button { min-height: 44px; white-space: nowrap; font-size: 13px; }
+  @media (min-width: 701px) {
+    .hero-point { display: flex; align-items: center; justify-content: center; min-height: auto; padding: 8px 12px; }
+    .hero-point .icon { display: none; }
+    .hero-point p { font-size: 13px; line-height: 1.5; white-space: nowrap; }
+    .hero-point p br { display: none; }
+  }
+  @media (min-width: 1061px) {
+    .problems-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .problem-card { min-height: 232px; padding: 30px; }
+    .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+    .service-card { display: flex; min-height: 0; padding: 30px; }
+    .service-card h3, .service-card h3.is-long-title { display: flex; align-items: center; justify-content: center; min-height: 76px; margin: 0; text-align: center; font-size: 23px; line-height: 1.35; }
+    .service-card .service-sub { margin: -2px 0 18px; text-align: center; font-size: 13px; }
+    .service-card .service-visual { width: 100%; margin: 0 0 20px; aspect-ratio: 184 / 96; }
+    .service-card .service-list { align-self: stretch; width: 100%; margin: 0 0 24px; }
+    .service-card .service-footer, .service-card .pdf-footer { margin-top: auto; }
+    .service-card:nth-child(even) h3, .service-card:nth-child(even) .service-sub, .service-card:nth-child(even) .service-visual, .service-card:nth-child(even) .service-list, .service-card:nth-child(even) .service-footer, .service-card:nth-child(even) .pdf-footer { grid-column: auto; grid-row: auto; }
+  }
+  @media (max-width: 700px) {
+    #problems, #services, #strength, #profile, #flow, #faq, #contact,
+    #dx-support, #ai-search, #ai-experience, #system-development { scroll-margin-top: 88px; }
+    .service-cta { padding: 20px 0; }
+    .service-cta-inner { display: flex; align-items: flex-start; flex-direction: column; gap: 14px; padding: 22px; border-radius: 20px; }
+    .service-cta .button { width: auto; min-height: 42px; margin-top: 0; }
   }
 </style>
 </head>
@@ -639,7 +778,7 @@
           <p class="section-sub">AIやITを導入したいけれど、何から手をつければよいか分からない。<br>まずは日々の「手間」から整理します。</p>
         </div>
         <div class="problems-grid">
-          <a class="card problem-card" href="#dx-support" data-track="problem_dx_support">
+          <a class="card problem-card" href="contact.html?category=reservation" data-track="problem_dx_support">
             <svg class="problem-illustration" viewBox="0 0 96 96" aria-hidden="true">
               <circle cx="48" cy="48" r="44" fill="#EDF5FF"/>
               <rect x="24" y="30" width="40" height="28" rx="10" fill="#0A3C8F"/>
@@ -679,7 +818,7 @@
             <h3>集客に取り組みたいけれど、手が回らない</h3>
             <span class="problem-link">集客につながるAI活用を見る</span>
           </a>
-          <a class="card problem-card" href="#system-development" data-track="problem_system_development">
+          <a class="card problem-card" href="contact.html?category=tool-organization" data-track="problem_system_development">
             <svg class="problem-illustration" viewBox="0 0 96 96" aria-hidden="true">
               <circle cx="48" cy="48" r="44" fill="#EDF5FF"/>
               <rect x="28" y="26" width="34" height="44" rx="4" fill="#fff" stroke="#0A3C8F" stroke-width="3"/>
@@ -693,6 +832,32 @@
             </svg>
             <h3>Excel・紙での管理に限界を感じている</h3>
             <span class="problem-link">業務に合う仕組みを相談する</span>
+          </a>
+          <a class="card problem-card" href="contact.html?category=website-renewal" data-track="problem_website_renewal">
+            <svg class="problem-illustration" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="44" fill="#EDF5FF"/>
+              <rect x="20" y="25" width="50" height="42" rx="6" fill="#fff" stroke="#0A3C8F" stroke-width="3"/>
+              <path d="M20 35h50" stroke="#0A3C8F" stroke-width="3"/>
+              <circle cx="27" cy="30" r="2" fill="#E2911B"/>
+              <rect x="29" y="42" width="20" height="5" rx="2.5" fill="#0A3C8F"/>
+              <rect x="29" y="52" width="14" height="4" rx="2" fill="#D8E6FC"/>
+              <rect x="48" y="42" width="14" height="14" rx="3" fill="#E2911B"/>
+              <path d="m75 46 3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#0A3C8F"/>
+            </svg>
+            <h3>ホームページを新しくしたい・リニューアルしたい</h3>
+            <span class="problem-link">ホームページ制作について相談する</span>
+          </a>
+          <a class="card problem-card" href="contact.html?category=cost-review" data-track="problem_cost_optimization">
+            <svg class="problem-illustration" viewBox="0 0 96 96" aria-hidden="true">
+              <circle cx="48" cy="48" r="44" fill="#EDF5FF"/>
+              <rect x="24" y="24" width="32" height="46" rx="5" fill="#fff" stroke="#0A3C8F" stroke-width="3"/>
+              <path d="M32 36h16M32 45h16M32 54h10" stroke="#0A3C8F" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="68" cy="37" r="12" fill="#E2911B"/>
+              <path d="M68 30v14M63 35h9M63 40h9" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M68 56v13m0 0-6-6m6 6 6-6" fill="none" stroke="#0A3C8F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>契約中のサービス料金を見直したい</h3>
+            <span class="problem-link">コストを抑える方法を相談する</span>
           </a>
         </div>
       </div>
@@ -716,7 +881,7 @@
             </ul>
             <div class="service-footer" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4V6Zm0 0 8 7 8-7"/></svg>
-              このサービスについて相談する
+              業務改善について相談する
               <span class="service-footer-arrow">→</span>
             </div>
           </a>
@@ -735,7 +900,7 @@
             </ul>
             <div class="pdf-footer" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              サービス資料を見る
+              AI検索の資料を見る
               <span class="pdf-footer-arrow">→</span>
             </div>
           </a>
@@ -754,25 +919,62 @@
             </ul>
             <div class="pdf-footer" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              サービス資料を見る
+              AI体験の資料を見る
               <span class="pdf-footer-arrow">→</span>
             </div>
           </a>
-          <a class="card service-card" id="system-development" href="contact.html" data-track="service_system_contact" aria-label="システム提案・開発について問い合わせる">
-            <h3>システム提案・開発</h3>
-            <p class="service-sub">業務に合わせて構築</p>
-            <div class="service-visual"><img src="images/service_system_dev_highres.webp" alt="Webシステム開発のコード画面" width="700" height="394" loading="lazy"></div>
+          <a class="card service-card" id="system-development" href="contact.html" data-track="service_system_contact" aria-label="Web・システム提案・開発について問い合わせる">
+            <h3>Web・システム提案・開発</h3>
+            <p class="service-sub">業務に合わせて構築・最適化</p>
+            <div class="service-visual"><img src="images/service_sales_crm_demo.png" alt="架空データを表示した営業管理システムのダッシュボード画面" width="1773" height="887" loading="lazy"></div>
             <ul class="service-list">
+              <li>ホームページ制作・リニューアル</li>
               <li>業務システム開発、クラウド構築</li>
-              <li>既存システムの改善・運用支援</li>
+              <li>既存サービスの見直し・コスト最適化</li>
             </ul>
             <div class="service-footer" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4V6Zm0 0 8 7 8-7"/></svg>
-              このサービスについて相談する
+              Web・システムについて相談する
               <span class="service-footer-arrow">→</span>
             </div>
           </a>
         </div>
+      </div>
+    </section>
+
+    <section class="service-cta" aria-labelledby="service-cta-title">
+      <div class="container service-cta-inner">
+        <div>
+          <p class="service-cta-kicker">CONSULTATION</p>
+          <h2 id="service-cta-title">どのサービスが合うか、まずは一緒に整理します。</h2>
+        </div>
+        <a class="button button-primary" href="contact.html" data-track="service_mid_cta">サービス選びを相談する</a>
+      </div>
+    </section>
+
+    <section class="soft-band" id="strength">
+      <div class="container about-grid">
+        <article class="card about-panel">
+          <h2>Tail Techを選ぶ理由</h2>
+          <div class="reason-grid">
+            <div class="reason-item"><span class="reason-check">✓</span><p>金融・官公庁向けシステムで培った、安定性を重視する設計</p></div>
+            <div class="reason-item"><span class="reason-check">✓</span><p>AI・業務改善・システム基盤まで、一つの窓口で対応</p></div>
+            <div class="reason-item"><span class="reason-check">✓</span><p>現場に必要な機能から始められる、小規模で柔軟な導入</p></div>
+            <div class="reason-item"><span class="reason-check">✓</span><p>導入後の運用・改善まで、継続して伴走</p></div>
+          </div>
+        </article>
+        <article class="card profile-card" id="profile">
+          <div>
+            <h2>プロフィール</h2>
+            <p class="profile-owner">Tail Tech 代表 小西 直樹</p>
+            <p class="profile-name">AI / DX / インフラ・システム基盤エンジニア</p>
+            <p class="profile-lead">金融・官公庁のシステム経験を活かした信頼性の高いインフラ構築・運用支援</p>
+            <p class="profile-text">大手メーカー系SEを経て独立。金融・官公庁向けインフラで培った信頼性を武器に、中小企業・店舗のAI活用・DX推進を支援しています。</p>
+          </div>
+          <div class="profile-photo">
+            <img src="images/profile-temp-selected.webp" alt="Tail Tech 代表 小西直樹のワークスペース" width="700" height="525" loading="lazy">
+          </div>
+        </article>
       </div>
     </section>
 
@@ -823,32 +1025,6 @@
             <p>継続的な改善でビジネスの成長を支えます。</p>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="soft-band" id="strength">
-      <div class="container about-grid">
-        <article class="card about-panel">
-          <h2>Tail Techを選ぶ理由</h2>
-          <div class="reason-grid">
-            <div class="reason-item"><span class="reason-check">✓</span><p>金融・官公庁向けシステムで培った、安定性を重視する設計</p></div>
-            <div class="reason-item"><span class="reason-check">✓</span><p>AI・業務改善・システム基盤まで、一つの窓口で対応</p></div>
-            <div class="reason-item"><span class="reason-check">✓</span><p>現場に必要な機能から始められる、小規模で柔軟な導入</p></div>
-            <div class="reason-item"><span class="reason-check">✓</span><p>導入後の運用・改善まで、継続して伴走</p></div>
-          </div>
-        </article>
-        <article class="card profile-card" id="profile">
-          <div>
-            <h2>プロフィール</h2>
-            <p class="profile-owner">Tail Tech 代表 小西 直樹</p>
-            <p class="profile-name">AI / DX / インフラ・システム基盤エンジニア</p>
-            <p class="profile-lead">金融・官公庁のシステム経験を活かした信頼性の高いインフラ構築・運用支援</p>
-            <p class="profile-text">大手メーカー系SEを経て独立。金融・官公庁向けインフラで培った信頼性を武器に、中小企業・店舗のAI活用・DX推進を支援しています。</p>
-          </div>
-          <div class="profile-photo">
-            <img src="images/profile-temp-selected.webp" alt="Tail Tech 代表 小西直樹のワークスペース" width="700" height="525" loading="lazy">
-          </div>
-        </article>
       </div>
     </section>
 

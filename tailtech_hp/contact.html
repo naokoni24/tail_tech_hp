@@ -87,7 +87,7 @@
           <div class="field"><label for="contact-company">会社名・店舗名</label><input id="contact-company" name="company" type="text" autocomplete="organization"></div>
           <div class="field"><label for="contact-email">メールアドレス<span class="required">必須</span></label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
           <div class="field"><label for="contact-phone">電話番号</label><input id="contact-phone" name="phone" type="tel" autocomplete="tel"></div>
-          <div class="field full"><label for="contact-category">いちばん近いお悩みを選んでください<span class="required">必須</span></label><select id="contact-category" name="category" required><option value="" selected disabled>選択してください</option><option>問い合わせ・予約対応を楽にしたい</option><option>社内資料を探しやすくしたい</option><option>集客やイベントにAIを活用したい</option><option>Excel・紙・複数ツールを整理したい</option><option>まだ決まっていない・その他</option></select></div>
+          <div class="field full"><label for="contact-category">いちばん近いお悩みを選んでください<span class="required">必須</span></label><select id="contact-category" name="category" required><option value="" selected disabled>選択してください</option><option value="問い合わせ・予約対応を楽にしたい">問い合わせ・予約対応を楽にしたい</option><option value="社内資料を探しやすくしたい">社内資料を探しやすくしたい</option><option value="集客やイベントにAIを活用したい">集客やイベントにAIを活用したい</option><option value="Excel・紙・複数ツールを整理したい">Excel・紙・複数ツールを整理したい</option><option value="ホームページを新しくしたい・リニューアルしたい">ホームページを新しくしたい・リニューアルしたい</option><option value="契約中のサービス料金を見直したい">契約中のサービス料金を見直したい</option><option value="まだ決まっていない・その他">まだ決まっていない・その他</option></select></div>
           <div class="field full"><label for="contact-message">ご相談内容<span class="required">必須</span></label><textarea id="contact-message" name="message" placeholder="現在お困りのことや、ご希望を自由にお書きください。" required></textarea></div>
         </div>
         <label class="consent"><input type="checkbox" required><span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します。</span></label>
@@ -119,6 +119,19 @@
   </footer>
   <script src="js/cta-tracking.js?v=20260731-1" defer></script>
   <script>
+    const categoryMap = {
+      reservation: '問い合わせ・予約対応を楽にしたい',
+      'document-search': '社内資料を探しやすくしたい',
+      'ai-experience': '集客やイベントにAIを活用したい',
+      'tool-organization': 'Excel・紙・複数ツールを整理したい',
+      'website-renewal': 'ホームページを新しくしたい・リニューアルしたい',
+      'cost-review': '契約中のサービス料金を見直したい'
+    };
+    const category = categoryMap[new URLSearchParams(window.location.search).get('category')];
+    const categorySelect = document.getElementById('contact-category');
+    if (category && categorySelect.querySelector(`option[value="${category}"]`)) {
+      categorySelect.value = category;
+    }
     document.getElementById('contact-form').addEventListener('submit', () => {
       const submitButton = document.getElementById('contact-submit');
       submitButton.disabled = true;
